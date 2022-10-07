@@ -1,0 +1,542 @@
+[
+  {
+    "id": "javascript",
+    "label": "JavaScript",
+    "category": "programmingLanguages",
+    "priority": 1
+  },
+  {
+    "id": "typescript",
+    "label": "TypeScript",
+    "category": "programmingLanguages",
+    "priority": 1
+  },
+  {
+    "id": "sql",
+    "label": "SQL",
+    "category": "programmingLanguages",
+    "priority": 2
+  },
+  {
+    "id": "java",
+    "label": "Java",
+    "category": "programmingLanguages",
+    "priority": 3
+  },
+  {
+    "id": "go",
+    "label": "GO",
+    "category": "programmingLanguages",
+    "priority": 3
+  },
+  {
+    "id": "python",
+    "label": "python",
+    "category": "programmingLanguages",
+    "priority": 3
+  },
+  {
+    "id": "php",
+    "label": "php",
+    "category": "programmingLanguages",
+    "priority": 3
+  },
+  {
+    "id": "lotusscript",
+    "label": "LotusScript",
+    "category": "programmingLanguages",
+    "priority": 3
+  },
+  {
+    "id": "c",
+    "label": "C",
+    "category": "programmingLanguages",
+    "priority": 4
+  },
+  {
+    "id": "c#",
+    "label": "C#",
+    "category": "programmingLanguages",
+    "priority": 4
+  },
+  {
+    "id": "c++",
+    "label": "C++",
+    "category": "programmingLanguages",
+    "priority": 4
+  },
+  {
+    "id": "node.js",
+    "label": "Node.js",
+    "category": "applicationServers",
+    "priority": 1
+  },
+  {
+    "id": "apachehttpserver",
+    "label": "Apache HTTP Server",
+    "category": "applicationServers",
+    "priority": 2
+  },
+  {
+    "id": "nginx",
+    "label": "NGINX",
+    "category": "applicationServers",
+    "priority": 2
+  },
+  {
+    "id": "lotusdomino",
+    "label": "Lotus Domino",
+    "category": "applicationServers",
+    "priority": 3
+  },
+  {
+    "id": "postgresql",
+    "label": "PostgreSQL",
+    "category": "databases",
+    "priority": 1
+  },
+  {
+    "id": "mysql",
+    "label": "MySQL",
+    "category": "databases",
+    "priority": 1
+  },
+  {
+    "id": "mongodb",
+    "label": "mongoDB",
+    "category": "databases",
+    "priority": 1
+  },
+  {
+    "id": "firebasestorage",
+    "label": "Firebase Storage",
+    "category": "databases",
+    "priority": 2
+  },
+  {
+    "id": "ibmcloudant",
+    "label": "IBM Cloudant",
+    "category": "databases",
+    "priority": 2
+  },
+  {
+    "id": "react",
+    "label": "React",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "angularjs",
+    "label": "ANGULARJS",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "redux",
+    "label": "Redux",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "express.js",
+    "label": "Express.js",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "loopback4",
+    "label": "LoopBack 4",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "next.js",
+    "label": "NEXT.js",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "nestjs",
+    "label": "NestJS",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "jest",
+    "label": "Jest",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "mocha",
+    "label": "MOCHA",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "html",
+    "label": "HTML",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "html5",
+    "label": "HTML5",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "css",
+    "label": "CSS",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "css3",
+    "label": "CSS3",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "socket.io",
+    "label": "Socket.IO",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "json",
+    "label": "JSON",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "jwt",
+    "label": "JWT",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "graphql",
+    "label": "GraphQL",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "docker",
+    "label": "Docker",
+    "category": "webTechnologies",
+    "priority": 1
+  },
+  {
+    "id": "kubernetes",
+    "label": "Kubernetes",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "travisci",
+    "label": "Travis CI",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "jenkins",
+    "label": "Jenkins",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "sinon.js",
+    "label": "SINON.JS",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "jquery",
+    "label": "jQuery",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "reactnative",
+    "label": "React Native",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "webpack",
+    "label": "webpack",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "babel",
+    "label": "BABEL",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "gulp.js",
+    "label": "Gulp.js",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "swagger",
+    "label": "Swagger",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "passport",
+    "label": "Passport",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "bash",
+    "label": "Bash",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "db2",
+    "label": "DB2",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "redis",
+    "label": "Redis",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "microsoftsqlserver",
+    "label": "Microsoft SQL Server",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "marionette.js",
+    "label": "Marionette.js",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "backbone.js",
+    "label": "BACKBONE.JS",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "handlebars",
+    "label": "Handlebars",
+    "category": "webTechnologies",
+    "priority": 2
+  },
+  {
+    "id": "pm2",
+    "label": "PM2",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "bootstrap",
+    "label": "Bootstrap",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "ajax",
+    "label": "AJAX",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "xml",
+    "label": "XML",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "sass",
+    "label": "Sass",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "apidoc",
+    "label": "API Doc",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "nodemon",
+    "label": "Nodemon",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "mongoose",
+    "label": "Mongoose",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "joi",
+    "label": "Joi",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "npm",
+    "label": "npm",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "oauth2",
+    "label": "oAuth 2.0",
+    "category": "webTechnologies",
+    "priority": 3
+  },
+  {
+    "id": "yarn",
+    "label": "yarn",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "browserify",
+    "label": "browserify",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "lodash",
+    "label": "Lodash",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "cron",
+    "label": "Cron",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "nodemailer",
+    "label": "NodeMailer",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "sendgrid",
+    "label": "SendGrid",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "postman",
+    "label": "Postman",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "newman",
+    "label": "Newman",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "istanbul",
+    "label": "Istanbul",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "gatsby.js",
+    "label": "Gatsby.js",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "expo",
+    "label": "Expo",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "materialui",
+    "label": "Material UI",
+    "category": "webTechnologies",
+    "priority": 4
+  },
+  {
+    "id": "git",
+    "label": "Git",
+    "category": "otherSkills",
+    "priority": 1
+  },
+  {
+    "id": "adobephotoshop",
+    "label": "Adobe Photoshop",
+    "category": "otherSkills",
+    "priority": 1
+  },
+  {
+    "id": "webhooks",
+    "label": "Webhooks",
+    "category": "otherSkills",
+    "priority": 1
+  },
+  {
+    "id": "ldap",
+    "label": "LDAP",
+    "category": "otherSkills",
+    "priority": 1
+  },
+  {
+    "id": "googleapi",
+    "label": "Google API",
+    "category": "otherSkills",
+    "priority": 1
+  },
+  {
+    "id": "paypalapi",
+    "label": "PayPal API",
+    "category": "otherSkills",
+    "priority": 1
+  },
+  {
+    "id": "stripeapi",
+    "label": "Stripe API",
+    "category": "otherSkills",
+    "priority": 1
+  },
+  {
+    "id": "ngrok",
+    "label": "ngrok",
+    "category": "otherSkills",
+    "priority": 1
+  },
+  {
+    "id": "charles",
+    "label": "Charles",
+    "category": "otherSkills",
+    "priority": 1
+  },
+  {
+    "id": "curl",
+    "label": "cURL",
+    "category": "otherSkills",
+    "priority": 1
+  },
+  {
+    "id": "scrum",
+    "label": "Scrum",
+    "category": "otherSkills",
+    "priority": 1
+  }
+]

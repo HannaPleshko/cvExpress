@@ -1,0 +1,841 @@
+paths:
+  /api/v1/resume/{id}:
+    delete:
+      tags:
+        - Resume
+      description: Delete one resume by id
+      summary: delete one resume by id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            minimum: 1
+          description: The resume ID
+      responses:
+        '200': # status code
+          description: Resume deleted successfully.
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/SuccessResumeMessage'
+        '404': # status code
+          description: Not Found
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/Error'
+              example:
+                id: 16
+                message: 'Resume not founded.'
+        '500': # status code
+          description: Internal Server Error (Return one error from this array)
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/ArrayErrors'
+              example: [{ id: 144, message: 'Database not deleted resume.' }]
+  /api/v1/resume/upload:
+    post:
+      tags:
+        - Resume
+      description: Save the resume in the local storage with the file name as the full user name and timestamp
+      summary: upload a resume in json format from the client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/ResumeDto'
+      responses:
+        '200': # status code
+          description: Completed successfully
+          required: true
+          content:
+            application/json:
+              schema:
+                example: '43c160fb-fd60-0009-cbc7-6462e2fb08f0'
+        '400': # status code
+          description: Bad Request
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/Error'
+              example:
+                id: 16
+                message: 'Date is incorrect.'
+        '500': # status code
+          description: Internal Server Error (Return one error from this array)
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/ArrayErrors'
+              example:
+                [
+                  { id: 0, message: 'Server side-error' },
+                  { id: 9, message: 'Data not converted to doc.' },
+                  { id: 10, message: 'Image not got.' },
+                  { id: 11, message: 'Resume not saved.' },
+                  { id: 15, message: 'Date not converted.' },
+                ]
+  # TODO
+  # /api/v1/resume/download?file=:
+  #   get:
+  #     tags:
+  #       - Resume
+  #     description: Download a resume file by filename
+  #     summary: download a resume in doc format to the client
+  #     parameters:
+  #       - in: query
+  #         name: file
+  #         schema:
+  #           type: string
+  #         description: File name
+  #         example: TestFile.doc
+  #         required:
+  #           - file
+  #     responses:
+  #       '200': # status code
+  #         description: Completed successfully
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: string
+  #               format: binary
+  #               description: cv file
+  #               example: Download file
+  #       '404': # status code
+  #         description: Not Found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/Error'
+  #             example:
+  #               id: 13
+  #               message: 'Resume not founded.'
+  #       '500': # status code
+  #         description: Internal Server Error (Return one error from this array)
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/ArrayErrors'
+  #             example: [{ id: 0, message: 'Server side-error.' }, { id: 12, message: 'Resume not downloaded.' }]
+  /api/v1/resume:
+    get:
+      tags:
+        - Resume
+      description: Get all current user's resumes in local storage
+      summary: get all current user's resumes
+      responses:
+        '200': # status code
+          description: Completed successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/ResumeDtoForClient'
+        '500': # status code
+          description: Internal Server Error (Return one error from this array)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/ArrayErrors'
+              example: [{ id: 0, message: 'Server side-error' }, { id: 14, message: 'The resume not got.' }]
+  /api/v1/environment:
+    post:
+      tags:
+        - Environment
+      description: Adding a new environment (skill) for json in local storage only for admin access
+      summary: add a new environment (skill) only for admin access
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/EnvironmentForPost'
+      responses:
+        '201': # status code
+          description: Created
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/Environment'
+        '409': # status code
+          description: Conflict
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/Error'
+              example:
+                id: 1
+                message: 'Skill with this label already exists.'
+
+        '500': # status code
+          description: Internal Server Error (Return one error from this array)
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/ArrayErrors'
+              example:
+                [{ id: 0, message: 'Server side-error' }, { id: 2, message: 'Skill not saved.' }, { id: 7, message: 'Environment file not updated.' }]
+    get:
+      tags:
+        - Environment
+      description: Getting all skills
+      summary: returning all skills from the server
+      responses:
+        '200': # status code
+          description: Completed successfully (Will return an array of skills)
+          required: true
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/Environment'
+                example:
+                  - id: '4fce3ed1-cd15-4a1a-b5bb-9c9999732e12'
+                    label: 'JavaScript'
+                    category: 'programmingLanguages'
+                    priority: 1
+                  - id: '75147620-77cb-48b6-9d79-90f11079dc1f'
+                    label: 'TypeScript'
+                    category: 'programmingLanguages'
+                    priority: 1
+
+        '500': # status code
+          description: Internal Server Error
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/Error'
+              example:
+                id: 0
+                message: 'Server side-error'
+
+  /api/v1/environment/{id}:
+    delete:
+      tags:
+        - Environment
+      description: Delete one environment (skill) by id only for admin access
+      summary: delete one environment by id only for admin access
+      parameters:
+        - in: path
+          name: id # Note the name is the same as in the path
+          required: true
+          schema:
+            type: string
+            minimum: 1
+          description: The environment ID
+      responses:
+        '200': # status code
+          description: Completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/SuccessEnvironmentMessage'
+        '404': # status code
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/Error'
+              example:
+                id: 5
+                message: 'Skill not found.'
+        '500': # status code
+          description: Internal Server Error (Return one error from this array)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/ArrayErrors'
+              example:
+                [
+                  { id: 0, message: 'Server side-error' },
+                  { id: 6, message: 'Skill not deleted.' },
+                  { id: 7, message: 'Environment file not updated.' },
+                ]
+    patch:
+      tags:
+        - Environment
+      description: Update one environment (skill) by id in local storage only for admin access
+      summary: update one environment by id only for admin access
+      parameters:
+        - in: path
+          name: id # Note the name is the same as in the path
+          required: true
+          schema:
+            type: string
+            minimum: 1
+          description: The environment ID
+      requestBody:
+        description: You can enter only the data you want to change
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/EnvironmentForPatch'
+      responses:
+        '200': # status code
+          description: Completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/Environment'
+        '404': # status code
+          description: Not Found (Return one error from this array)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/ArrayErrors'
+              example: [{ id: 3, message: 'Skill not found.' }, { id: 4, message: 'Skill not updated.' }]
+        '500': # status code
+          description: Internal Server Error (Return one error from this array)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/ArrayErrors'
+              example:
+                [
+                  { id: 0, message: 'Server side-error' },
+                  { id: 7, message: 'Environment file not updated.' },
+                  { id: 8, message: 'Environment file not read.' },
+                ]
+  /api/v1/errors:
+    get:
+      tags:
+        - Errors
+      summary: get all errors from server
+      description: Get all the described errors from the server
+      responses:
+        '200': # status code
+          description: Completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/AllErrors'
+        '500': # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/Error'
+              example:
+                id: 0
+                message: 'Server side-error'
+components:
+  ResumeDto:
+    title: ResumeDto
+    type: object
+    properties:
+      header:
+        $ref: '#/components/ResumeHeader'
+      skills:
+        $ref: '#/components/ResumeSkills'
+      experience:
+        type: array
+        items:
+          $ref: '#/components/ResumeExperience'
+      education:
+        type: array
+        items:
+          type: string
+          description: profile text
+        example:
+          [
+            'Higher education in the field of Automation of technological processes and productions, Belarusian State Technological University, Minsk',
+            'Online training course React 16 - The Complete Guide (incl. React Router 4 & Redux)',
+          ]
+      filename:
+        type: string
+        description: file name
+        example: MyResume
+
+    required:
+      - header
+      - skills
+      - experience
+      - education
+      - filename
+
+  ResumeDtoForClient:
+    title: ResumeDto
+    type: object
+    properties:
+      id:
+        example: '43c160fb-fd60-0009-cbc7-6462e2fb08f0'
+      header:
+        $ref: '#/components/ResumeHeader'
+      skills:
+        $ref: '#/components/ResumeSkills'
+      experience:
+        type: array
+        items:
+          $ref: '#/components/ResumeExperience'
+      education:
+        type: array
+        items:
+          type: string
+          description: profile text
+        example:
+          [
+            'Higher education in the field of Automation of technological processes and productions, Belarusian State Technological University, Minsk',
+            'Online training course React 16 - The Complete Guide (incl. React Router 4 & Redux)',
+          ]
+      filename:
+        type: string
+        description: file name
+        example: MyResume
+
+    required:
+      - id
+      - header
+      - skills
+      - experience
+      - education
+      - filename
+
+  ResumeHeader:
+    title: ResumeHeader
+    type: object
+    properties:
+      firstName:
+        type: string
+        description: firstName text
+        example: First
+      lastName:
+        type: string
+        description: lastName text
+        example: Last
+      userPosition:
+        type: string
+        description: description text
+        example: Software Engineer
+      positionLevel:
+        type: string
+        description: description text
+        example: Senior
+      profile:
+        type: array
+        items:
+          profile:
+            type: string
+            description: profile text
+        description: array of profile
+        example:
+          [
+            'Perfect understanding of all stages of software development process',
+            'JavaScript/ Web developer with over 6 years of experience in software application development',
+          ]
+    required:
+      - name
+      - userPosition
+      - positionLevel
+      - profile
+
+  ResumeSkills:
+    title: ResumeSkills
+    type: object
+    properties:
+      languages:
+        type: array
+        items:
+          $ref: '#/components/Language'
+      operatingSystems:
+        type: array
+        items:
+          profile:
+            type: string
+            description: profile text
+        description: array of profile
+        example: ['Windows', 'Linux']
+    required:
+      - languages
+      - operatingSystems
+
+  Language:
+    type: object
+    properties:
+      language:
+        type: string
+        description: language
+      level:
+        type: string
+        description: level of language
+    required:
+      - language
+      - level
+    example:
+      language: en
+      level: B2
+
+  ResumeExperience:
+    title: ResumeSkills
+    type: object
+    properties:
+      userPosition:
+        type: string
+        description: description text
+        example: Software Engineer
+      positionLevel:
+        type: string
+        description: description text
+        example: Senior
+      companyName:
+        type: string
+        description: companyName
+        example: IBA
+      startDate:
+        type: string
+        description: startDate of project
+        example: 2017-12-01
+      endDate:
+        type: string
+        description: endDate of project
+        example: null
+      projects:
+        type: array
+        items:
+          $ref: '#/components/Projects'
+    required:
+      - userPosition
+      - positionLevel
+      - companyName
+      - startDate
+      - endDate
+      - projects
+
+  Projects:
+    type: object
+    properties:
+      userPosition:
+        type: string
+        description: description text
+        example: Software Engineer
+      positionLevel:
+        type: string
+        description: description text
+        example: Senior
+      description:
+        type: string
+        description: description of project
+        example: Description of the project you worked on
+      responsibilities:
+        type: array
+        items:
+          responsibility: string
+          description: responsibility
+        example: ['UI development', 'bug fixing']
+      environment:
+        $ref: '#/components/EnvironmentOnlyLabel'
+    required:
+      - userPosition
+      - positionLevel
+      - description
+      - responsibilities
+      - environment
+  Environment:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Environment ID
+        example: 4fce3ed1-cd15-4a1a-b5bb-9c9999732e12
+      label:
+        type: string
+        description: label of environment
+        example: JavaScript
+      category:
+        type: string
+        description: category of environment
+        example: programmingLanguages
+      priority:
+        type: number
+        description: priority of environment
+        example: 1
+    required:
+      - id
+      - label
+      - category
+      - priority
+
+  EnvironmentForPost:
+    type: object
+    properties:
+      label:
+        type: string
+        description: label of environment
+        example: JavaScript
+      category:
+        type: string
+        description: category of environment
+        example: programmingLanguages
+      priority:
+        type: number
+        description: priority of environment
+        example: 1
+    required:
+      - id
+      - label
+      - category
+      - priority
+
+  EnvironmentForPatch:
+    type: object
+    properties:
+      label:
+        type: string
+        description: label of environment
+        example: JavaScript
+      category:
+        type: string
+        description: category of environment
+        example: programmingLanguages
+      priority:
+        type: number
+        description: priority of environment
+        example: 1
+
+  EnvironmentOnlyLabel:
+    type: array
+    items:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Environment label
+    required:
+      - label
+    example: [{ 'label': 'java' }, { 'label': 'javascript' }, { 'label': 'typescript' }, { 'label': 'postgresql' }]
+
+  Files:
+    type: string
+    description: Name of file
+    example: TestFile.doc
+
+  AllErrors:
+    title: Errors
+    type: array
+    items:
+      $ref: '#/components/FullError'
+    example:
+      [
+        { id: 0, message: Server-side error., description: Internal server error., status: 500 },
+        {
+          id: 1,
+          message: The skill with this label already exists.,
+          description: Error when filtering a new environment or skills in the saveEnvironment method.,
+          status: 409,
+        },
+        { id: 2, message: Skill not saved., description: Error when saving or processing data in the saveEnvironment method., status: 500 },
+        { id: 3, message: Skill not found., description: Error in the updateEnvironment method., status: 404 },
+        { id: 4, message: Skill not updated., description: Error when processing data in the updateEnvironment method., status: 500 },
+        { id: 5, message: Skill not found., description: Error in the deleteEnvironment method., status: 404 },
+        { id: 6, message: Skill not deleted., description: Error when processing data in the deleteEnvironment method., status: 500 },
+        { id: 7, message: Environment file not updated., description: Error when updating a file in the writeFile method., status: 500 },
+        { id: 8, message: Environment file not read., description: Error when reading file in readEnvironmentFile method., status: 500 },
+        { id: 9, message: Data not converted to doc., description: The data received from the client is incorrect or incomplete., status: 500 },
+        { id: 10, message: Image not got., description: Path to the image or reading is not possible., status: 500 },
+        { id: 11, message: Resume not saved., description: Data received from the client is incorrect or there is a path error., status: 500 },
+        { id: 12, message: Resume not downloaded., description: Data received from the client is incorrect., status: 500 },
+        { id: 13, message: Resume not founded., description: In resume service method download., status: 404 },
+        { id: 14, message: The resumes not got., description: In resume service method download., status: 500 },
+        { id: 142, message: The resume not got., description: In resume service method getResumeById., status: 500 },
+        { id: 15, message: Date not converted., description: In conversion service method convertDateToString., status: 500 },
+        { id: 16, message: Date is incorrect., description: In conversion service method convertDateToString., status: 400 },
+        { id: 19, message: Database not initialized., description: In create table query., status: 500 },
+        { id: 20, message: Database not connected., description: In create table query., status: 500 },
+        { id: 21, message: Database not droped., description: In drop table query., status: 500 },
+        { id: 22, message: Database not connected., description: In drop table query., status: 500 },
+        { id: 37, message: Database not created column in project., description: In ProjectDB class method create., status: 500 },
+        { id: 40, message: Database not got column in projects., description: In ProjectDB class method getAll., status: 500 },
+        { id: 41, message: Database not got column in project., description: In ProjectDB class method getById., status: 500 },
+        { id: 42, message: Database not deleted column in project., description: In ProjectDB class method deleteById., status: 500 },
+        { id: 43, message: Database not found column in project., description: In ProjectDB class method update., status: 404 },
+        { id: 44, message: Database not update column in project., description: In ProjectDB class method update., status: 500 },
+        { id: 45, message: Database not created userLanguage., description: In UserLanguageDB class method create., status: 500 },
+        { id: 46, message: Database not found baseLevel or baseLanguage., description: In UserLanguageDB class method create., status: 400 },
+        { id: 47, message: Database not got userLanguages., description: In UserLanguageDB class method getAll., status: 500 },
+        { id: 48, message: Database not got userLanguage., description: In UserLanguageDB class method getById., status: 500 },
+        { id: 49, message: Database not deleted userLanguage., description: In UserLanguageDB class method deleteById., status: 500 },
+        { id: 50, message: Database not created skillUserLanguage., description: In Skill_UserLanguageDB class method create., status: 500 },
+        { id: 51, message: Database not found userLanguage or skill., description: In Skill_UserLanguageDB class method create., status: 400 },
+        { id: 52, message: Database not got skillUserLanguages., description: In Skill_UserLanguageDB class method getAll., status: 500 },
+        { id: 53, message: Database not got skillUserLanguages., description: In Skill_UserLanguageDB class method getById., status: 500 },
+        { id: 54, message: Database not deleted skillUserLanguage., description: In Skill_UserLanguageDB class method deleteOne., status: 500 },
+        { id: 55, message: Database not deleted skillUserLanguages., description: In Skill_UserLanguageDB class method deleteById., status: 500 },
+        { id: 60, message: Database not created responsibility., description: In ResponsibilityDB class method create., status: 500 },
+        { id: 61, message: Database not got responsibility., description: In ResponsibilityDB class method getAll., status: 500 },
+        { id: 62, message: Database not got responsibility., description: In ResponsibilityDB class method getById., status: 500 },
+        { id: 91, message: Database not got responsibility., description: In ResponsibilityDB class method getByProjectId., status: 500 },
+        { id: 63, message: Database not deleted responsibility., description: In ResponsibilityDB class method deleteById., status: 500 },
+        { id: 56, message: Database not created environment., description: In EnvironmentDB class method create., status: 500 },
+        { id: 57, message: Database not got environments., description: In EnvironmentDB class method getAll., status: 500 },
+        { id: 58, message: Database not got environment., description: In EnvironmentDB class method getById., status: 500 },
+        { id: 92, message: Database not got environment., description: In EnvironmentDB class method getByProjectId., status: 500 },
+        { id: 59, message: Database not deleted environment., description: In EnvironmentDB class method deleteById., status: 500 },
+        { id: 68, message: Database not created education., description: In EducationDB class method create., status: 500 },
+        { id: 69, message: Database not got educations., description: In EducationDB class method getAll., status: 500 },
+        { id: 70, message: Database not got education., description: In EducationDB class method getById., status: 500 },
+        { id: 71, message: Database not deleted education., description: In EducationDB class method deleteById., status: 500 },
+        { id: 64, message: 'Database not created company.', description: 'In CompanyDB class method create', status: 500 },
+        { id: 65, message: 'Database not got companies.', description: 'In CompanyDB class method getAll', status: 500 },
+        { id: 66, message: 'Database not got company.', description: 'In CompanyDB class method getById', status: 500 },
+        { id: 67, message: 'Database not deleted company.', description: 'In CompanyDB class method deleteById', status: 500 },
+        { id: 72, message: 'Database not found company.', description: 'In CompanyDB class method updateById', status: 404 },
+        { id: 73, message: 'Database not updated company.', description: 'In CompanyDB class method updateById', status: 500 },
+        { id: 74, message: 'Database not created header.', description: 'In HeaderDB class method create', status: 500 },
+        { id: 75, message: 'Database not got header.', description: 'In HeaderDB class method getAll', status: 500 },
+        { id: 76, message: 'Database not got header.', description: 'In HeaderDB class method getById', status: 500 },
+        { id: 77, message: 'Database not deleted header.', description: 'In HeaderDB class method deleteById', status: 500 },
+        { id: 78, message: 'Database not updated header.', description: 'In HeaderDB class method updateById', status: 500 },
+        { id: 79, message: 'Database not found header.', description: 'In HeaderDB class method updateById', status: 404 },
+        { id: 86, message: Database not found project or experience., description: In Project_ExperienceDB class method create., status: 500 },
+        { id: 87, message: Database not got projectExperiences., description: In Project_ExperienceDB class method getAll., status: 500 },
+        { id: 88, message: Database not got projectExperiences., description: In Project_ExperienceDB class method getById., status: 500 },
+        { id: 89, message: Database not deleted projectExperiences., description: In Project_ExperienceDB class method deleteOne., status: 500 },
+        { id: 90, message: Database not deleted projectExperiences., description: In Project_ExperienceDB class method deleteById., status: 500 },
+        { id: 80, message: 'Database not created experience.', description: 'In ExperienceDb class method create', status: 500 },
+        { id: 81, message: 'Database not got experiences.', description: 'In ExperienceDb class method getAll', status: 500 },
+        { id: 82, message: 'Database not got experience.', description: 'In ExperienceDb class method getById', status: 500 },
+        { id: 83, message: 'Database not deleted experience.', description: 'In ExperienceDb class method deleteById', status: 500 },
+        { id: 84, message: 'Database not updated experience.', description: 'In ExperienceDb class method updateById', status: 500 },
+        { id: 85, message: 'Database not found experience.', description: 'In ExperienceDb class method updateById', status: 404 },
+        { id: 93, message: Database not created experiencesResume., description: In ExperienceResumeDB class method create., status: 500 },
+        { id: 94, message: Database not got experiencesResume., description: In ExperienceResumeDB class method getAll., status: 500 },
+        { id: 95, message: Database not got experiencesResume., description: In ExperienceResumeDB class method getById., status: 500 },
+        { id: 96, message: Database not deleted experiencesResume., description: In ExperienceResumeDB class method deleteOne., status: 500 },
+        { id: 97, message: Database not deleted experiencesResume., description: In ExperienceResumeDB class method deleteById., status: 500 },
+        { id: 105, message: 'Database not created user.', description: 'In UserDB class method create', status: 500 },
+        { id: 106, message: 'Database not found user.', description: 'In UserDB class method create', status: 404 },
+        { id: 107, message: 'Database not got user.', description: 'In UserDB class method getAll', status: 500 },
+        { id: 108, message: 'Database not got user.', description: 'In UserDB class method getById', status: 500 },
+        { id: 109, message: 'Database not deleted user.', description: 'In UserDB class method deleteById', status: 500 },
+        { id: 110, message: 'Database not updated user.', description: 'In UserDB class method updateById', status: 500 },
+        { id: 98, message: 'Database not created resume.', description: 'In ResumeDB class method create', status: 500 },
+        { id: 99, message: 'Database not got resume.', description: 'In ResumeDB class method getAll', status: 500 },
+        { id: 100, message: 'Database not got resume.', description: 'In ResumeDB class method getById', status: 500 },
+        { id: 101, message: 'Database not deleted resume.', description: 'In ResumeDB class method deleteById', status: 500 },
+        { id: 102, message: 'Database not updated resume.', description: 'In ResumeDB class method updateById', status: 500 },
+        { id: 103, message: 'Database not found resume.', description: 'In ResumeDB class method updateById', status: 404 },
+        { id: 104, message: 'Database not created skill.', description: 'In ResumeDB class method create', status: 500 },
+        { id: 111, message: 'Database not created skill.', description: 'In SkillsDB class method create', status: 500 },
+        { id: 112, message: 'Database not got skills.', description: 'In SkillsDB class method getAll', status: 500 },
+        { id: 113, message: 'Database not got skill.', description: 'In SkillsDB class method getById', status: 500 },
+        { id: 114, message: 'Database not deleted skill.', description: 'In SkillsDB class method deleteById', status: 500 },
+        { id: 115, message: 'Database not updated skill.', description: 'In SkillsDB class method updateById', status: 500 },
+        { id: 116, message: 'Database not found skill.', description: 'In SkillsDB class method updateById', status: 404 },
+        { id: 117, message: 'Database not updated environment.', description: 'In EnvironmentDB class method updateById', status: 500 },
+        { id: 118, message: 'Database not found environment.', description: 'In EnvironmentDB class method updateById', status: 404 },
+        { id: 119, message: 'Resume not founded.', description: 'In resume service method delete', status: 404 },
+        { id: 120, message: 'DB not found experiences resume.', description: 'In resume service method delete', status: 404 },
+        { id: 121, message: 'Database not found user.', description: 'In EnvironmentDB class method notExist', status: 500 },
+        { id: 122, message: 'UserLanguage is incorrect.', description: 'In ResponsibilityDB class method notExist', status: 500 },
+        { id: 123, message: 'Database not add resume. ', description: 'In ResponsibilityDB class method notExist', status: 500 },
+        { id: 124, message: 'Database Database not found user.', description: 'In ResponsibilityDB class method notExist', status: 500 },
+        { id: 125, message: 'Database not add or update header.', description: 'In ResponsibilityDB class method notExist', status: 500 },
+        { id: 126, message: 'Database not found environment or project', description: 'In ResponsibilityDB class method notExist', status: 500 },
+        { id: 127, message: 'Database not found company.', description: 'In CompanyDB class method getOne', status: 500 },
+        { id: 128, message: 'Database not found responsibility or project.', description: 'In ResponsibilityDB class method notExist', status: 500 },
+        { id: 129, message: Database not created responsibilitProject., description: In ResponsibilityProjectDB class method create., status: 500 },
+        { id: 130, message: Database not got responsibilitProject., description: In ResponsibilityProjectDB class method getAll., status: 500 },
+        { id: 131, message: Database not got responsibilitProject., description: In ResponsibilityProjectDB class method getById., status: 500 },
+        {
+          id: 132,
+          message: Database not deleted responsibilitProject.,
+          description: In ResponsibilityProjectDB class method deleteOne.,
+          status: 500,
+        },
+        {
+          id: 133,
+          message: Database not deleted responsibilitProject.,
+          description: In ResponsibilityProjectDB class method deleteById.,
+          status: 500,
+        },
+        { id: 134, message: Database not created environmentProject., description: In EnvironmentProjectDB class method create., status: 500 },
+        { id: 135, message: Database not got environmentProject., description: In EnvironmentProjectDB class method getAll., status: 500 },
+        { id: 136, message: Database not got environmentProject., description: In EnvironmentProjectDB class method getById., status: 500 },
+        { id: 137, message: Database not deleted environmentProject., description: In EnvironmentProjectDB class method deleteOne., status: 500 },
+        { id: 138, message: Database not deleted environmentProject., description: In EnvironmentProjectDB class method deleteById., status: 500 },
+        { id: 139, message: Database not created environment., description: In EnvironmentDB class method getByEnvironment., status: 404 },
+        { id: 140, message: Database not got responsibility., description: In ResponsibilityDB class method getByResponsibility., status: 404 },
+        { id: 70, message: Database not got educations., description: In EducationDB class method getAllByResumeId., status: 500 },
+        { id: 142, message: Database not deleted resume., description: In ResumeService class method delete, status: 500 },
+      ]
+
+  FullError:
+    title: Error
+    type: object
+    properties:
+      id:
+        type: number
+        description: Id of error
+      message:
+        type: string
+        description: Message text
+      description:
+        type: string
+        description: Description text
+      status:
+        type: string
+        description: Status of error
+    required:
+      - id
+      - message
+      - description
+      - status
+
+  SuccessResumeMessage:
+    example: Resume deleted successfully.
+
+  SuccessEnvironmentMessage:
+    example: Environment deleted successfully.
+
+  Error:
+    title: Error
+    type: object
+    properties:
+      id:
+        type: number
+        description: Id of error
+      message:
+        type: string
+        description: Message text
+      status:
+        type: number
+        description: Status code
+    required:
+      - id
+      - message
+    example:
+      id: 0
+      message: Server-side error.
+      status: 500
+
+  ArrayErrors:
+    title: Array Error
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: number
+          description: Id of error
+        message:
+          type: string
+          description: Message text
+        status:
+          type: number
+          description: Status code
+      required:
+        - id
+        - message
+    example: [{ id: 0, message: 'Server-side error' }]

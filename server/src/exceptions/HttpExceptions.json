@@ -1,0 +1,754 @@
+[
+  {
+    "id": 0,
+    "message": "Internal server error.",
+    "description": "Internal server error.",
+    "status": 500
+  },
+  {
+    "id": 1,
+    "message": "The skill with this label already exists.",
+    "description": "Error when filtering a new environment or skills in the saveEnvironment method.",
+    "status": 409
+  },
+  {
+    "id": 2,
+    "message": "Skill not saved.",
+    "description": "Error when saving or processing data in the saveEnvironment method.",
+    "status": 500
+  },
+  {
+    "id": 3,
+    "message": "Skill not found.",
+    "description": "Error in the updateEnvironment method.",
+    "status": 404
+  },
+  {
+    "id": 4,
+    "message": "Skill not updated.",
+    "description": "Error when processing data in the updateEnvironment method.",
+    "status": 500
+  },
+  {
+    "id": 5,
+    "message": "Skill not found.",
+    "description": "Error in the deleteEnvironment method.",
+    "status": 404
+  },
+  {
+    "id": 6,
+    "message": "Skill not deleted.",
+    "description": "Error when processing data in the deleteEnvironment method.",
+    "status": 500
+  },
+  {
+    "id": 7,
+    "message": "Environment file not updated.",
+    "description": "Error when updating a file in the writeFile method.",
+    "status": 500
+  },
+  {
+    "id": 8,
+    "message": "Environment file not read.",
+    "description": "Error when reading file in readEnvironmentFile method.",
+    "status": 500
+  },
+  {
+    "id": 9,
+    "message": "Data not converted to doc.",
+    "description": "The data received from the client is incorrect or incomplete.",
+    "status": 500
+  },
+  {
+    "id": 10,
+    "message": "Image not got.",
+    "description": "Path to the image or reading is not possible.",
+    "status": 500
+  },
+  {
+    "id": 11,
+    "message": "Resume not saved.",
+    "description": "Data received from the client is incorrect or there is a path error.",
+    "status": 500
+  },
+  {
+    "id": 12,
+    "message": "Resume not downloaded.",
+    "description": "Data received from the client is incorrect.",
+    "status": 500
+  },
+  {
+    "id": 13,
+    "message": "Resume not founded.",
+    "description": "In resume service method download.",
+    "status": 404
+  },
+  {
+    "id": 14,
+    "message": "The resumes not got.",
+    "description": "In resume service method download.",
+    "status": 500
+  },
+  {
+    "id": 142,
+    "message": "The resume not got.",
+    "description": "In resume service method getResumeById.",
+    "status": 500
+  },
+  {
+    "id": 15,
+    "message": "Date not converted.",
+    "description": "In conversion service method convertDateToString.",
+    "status": 500
+  },
+  {
+    "id": 16,
+    "message": "Date is incorrect.",
+    "description": "In conversion service method convertDateToString.",
+    "status": 400
+  },
+  {
+    "id": 19,
+    "message": "Database not initialized.",
+    "description": "In create table query.",
+    "status": 500
+  },
+  {
+    "id": 20,
+    "message": "Database not connected.",
+    "description": "In create table query.",
+    "status": 500
+  },
+  {
+    "id": 21,
+    "message": "Database not droped.",
+    "description": "In drop table query.",
+    "status": 500
+  },
+  {
+    "id": 22,
+    "message": "Database not connected.",
+    "description": "In drop table query.",
+    "status": 500
+  },
+  {
+    "id": 37,
+    "message": "Database not created column in project.",
+    "description": "In ProjectDB class method create.",
+    "status": 500
+  },
+  {
+    "id": 40,
+    "message": "Database not got column in projects.",
+    "description": "In ProjectDB class method getAll.",
+    "status": 500
+  },
+  {
+    "id": 41,
+    "message": "Database not got column in project.",
+    "description": "In ProjectDB class method getById.",
+    "status": 500
+  },
+  {
+    "id": 42,
+    "message": "Database not deleted column in project.",
+    "description": "In ProjectDB class method deleteById.",
+    "status": 500
+  },
+  {
+    "id": 43,
+    "message": "Database not found column in project.",
+    "description": "In ProjectDB class method update.",
+    "status": 404
+  },
+  {
+    "id": 44,
+    "message": "Database not update column in project.",
+    "description": "In ProjectDB class method update.",
+    "status": 500
+  },
+  {
+    "id": 60,
+    "message": "Database not created responsibility.",
+    "description": "In ResponsibilityDB class method create.",
+    "status": 500
+  },
+  {
+    "id": 61,
+    "message": "Database not got responsibility.",
+    "description": "In ResponsibilityDB class method getAll",
+    "status": 500
+  },
+  {
+    "id": 62,
+    "message": "Database not got responsibility.",
+    "description": "In ResponsibilityDB class method getById",
+    "status": 500
+  },
+  {
+    "id": 91,
+    "message": "Database not got responsibility.",
+    "description": "In ResponsibilityDB class method getByProjectId",
+    "status": 500
+  },
+  {
+    "id": 63,
+    "message": "Database not deleted responsibility.",
+    "description": "In ResponsibilityDB class method deleteById"
+  },
+  {
+    "id": 45,
+    "message": "Database not created userLanguage.",
+    "description": "In UserLanguageDB class method create.",
+    "status": 500
+  },
+  {
+    "id": 46,
+    "message": "Database not found baseLevel or baseLanguage.",
+    "description": "In UserLanguageDB class method create.",
+    "status": 400
+  },
+  {
+    "id": 47,
+    "message": "Database not got userLanguages.",
+    "description": "In UserLanguageDB class method getAll.",
+    "status": 500
+  },
+  {
+    "id": 48,
+    "message": "Database not got userLanguage.",
+    "description": "In UserLanguageDB class method getById.",
+    "status": 500
+  },
+  {
+    "id": 49,
+    "message": "Database not deleted userLanguage.",
+    "description": "In UserLanguageDB class method deleteById.",
+    "status": 500
+  },
+  {
+    "id": 50,
+    "message": "Database not created skillUserLanguage.",
+    "description": "In Skill_UserLanguageDB class method create.",
+    "status": 500
+  },
+  {
+    "id": 51,
+    "message": "Database not found userLanguage or skill.",
+    "description": "In Skill_UserLanguageDB class method create.",
+    "status": 400
+  },
+  {
+    "id": 52,
+    "message": "Database not got skillUserLanguages.",
+    "description": "In Skill_UserLanguageDB class method getAll.",
+    "status": 500
+  },
+  {
+    "id": 53,
+    "message": "Database not got skillUserLanguages.",
+    "description": "In Skill_UserLanguageDB class method getById.",
+    "status": 500
+  },
+  {
+    "id": 54,
+    "message": "Database not deleted skillUserLanguage.",
+    "description": "In Skill_UserLanguageDB class method deleteOne.",
+    "status": 500
+  },
+  {
+    "id": 55,
+    "message": "Database not deleted skillUserLanguages.",
+    "description": "In Skill_UserLanguageDB class method deleteById.",
+    "status": 500
+  },
+  {
+    "id": 56,
+    "message": "Database not created environment.",
+    "description": "In EnvironmentDB class method create.",
+    "status": 500
+  },
+  {
+    "id": 57,
+    "message": "Database not got environments.",
+    "description": "In EnvironmentDB class method getAll",
+    "status": 500
+  },
+  {
+    "id": 58,
+    "message": "Database not got environment.",
+    "description": "In EnvironmentDB class method getById",
+    "status": 500
+  },
+  {
+    "id": 92,
+    "message": "Database not got environment.",
+    "description": "In EnvironmentDB class method getByProjectId",
+    "status": 500
+  },
+  {
+    "id": 59,
+    "message": "Database not deleted environment.",
+    "description": "In EnvironmentDB class method deleteById",
+    "status": 500
+  },
+  {
+    "id": 68,
+    "message": "Database not created education.",
+    "description": "In EducationDB class method create.",
+    "status": 500
+  },
+  {
+    "id": 69,
+    "message": "Database not got educations.",
+    "description": "In EducationDB class method getAll",
+    "status": 500
+  },
+  {
+    "id": 70,
+    "message": "Database not got education.",
+    "description": "In EducationDB class method getById",
+    "status": 500
+  },
+  {
+    "id": 71,
+    "message": "Database not deleted education.",
+    "description": "In EducationDB class method deleteById"
+  },
+  {
+    "id": 64,
+    "message": "Database not created company.",
+    "description": "In CompanyDB class method create",
+    "status": 500
+  },
+  {
+    " id": 65,
+    "message": "Database not got companies.",
+    "description": "In CompanyDB class method getAll",
+    "status": 500
+  },
+  {
+    " id": 66,
+    "message": "Database not got company.",
+    "description": "In CompanyDB class method getById",
+    "status": 500
+  },
+  {
+    " id": 67,
+    "message": "Database not deleted company.",
+    "description": "In CompanyDB class method deleteById",
+    "status": 500
+  },
+  {
+    "id": 72,
+    "message": "Database not found company.",
+    "description": "In CompanyDB class method updateById",
+    "status": 404
+  },
+  {
+    "id": 73,
+    "message": "Database not updated company.",
+    "description": "In CompanyDB class method updateById",
+    "status": 500
+  },
+  {
+    "id": 74,
+    "message": "Database not created header.",
+    "description": "In HeaderDB class method create",
+    "status": 500
+  },
+  {
+    "id": 75,
+    "message": "Database not got header.",
+    "description": "In HeaderDB class method getAll",
+    "status": 500
+  },
+  {
+    "id": 76,
+    "message": "Database not got header.",
+    "description": "In HeaderDB class method getById",
+    "status": 500
+  },
+  {
+    "id": 77,
+    "message": "Database not deleted header.",
+    "description": "In HeaderDB class method deleteById",
+    "status": 500
+  },
+  {
+    "id": 78,
+    "message": "Database not updated header.",
+    "description": "In HeaderDB class method updateById",
+    "status": 500
+  },
+  {
+    "id": 79,
+    "message": "Database not found header.",
+    "description": "In HeaderDB class method updateById",
+    "status": 404
+  },
+  {
+    "id": 86,
+    "message": "Database not found project or experience.",
+    "description": "In Project_ExperienceDB class method create.",
+    "status": 500
+  },
+  {
+    "id": 87,
+    "message": "Database not got projectExperiences.",
+    "description": "In Project_ExperienceDB class method getAll.",
+    "status": 500
+  },
+  {
+    "id": 88,
+    "message": "Database not got projectExperience.",
+    "description": "In Project_ExperienceDB class method getById.",
+    "status": 500
+  },
+  {
+    "id": 89,
+    "message": "Database not deleted projectExperience.",
+    "description": "In Project_ExperienceDB class method deleteOne.",
+    "status": 500
+  },
+  {
+    "id": 90,
+    "message": "Database not deleted projectExperiences.",
+    "description": "In Project_ExperienceDB class method deleteById.",
+    "status": 500
+  },
+  {
+    "id": 80,
+    "message": "Database not created experience.",
+    "description": "In ExperienceDb class method create",
+    "status": 500
+  },
+  {
+    "id": 81,
+    "message": "Database not got experiences.",
+    "description": "In ExperienceDb class method getAll",
+    "status": 500
+  },
+  {
+    "id": 82,
+    "message": "Database not got experience.",
+    "description": "In ExperienceDb class method getById",
+    "status": 500
+  },
+  {
+    "id": 83,
+    "message": "Database not deleted experience.",
+    "description": "In ExperienceDb class method deleteById",
+    "status": 500
+  },
+  {
+    "id": 84,
+    "message": "Database not updated experience.",
+    "description": "In ExperienceDb class method updateById",
+    "status": 500
+  },
+  {
+    "id": 85,
+    "message": "Database not found experience.",
+    "description": "In ExperienceDb class method updateById",
+    "status": 404
+  },
+  {
+    "id": 93,
+    "message": "Database not created experiencesResume.",
+    "description": "In ExperienceResumeDB class method create.",
+    "status": 500
+  },
+  {
+    "id": 94,
+    "message": "Database not got experiencesResumes.",
+    "description": "In ExperienceResumeDB class method getAll.",
+    "status": 500
+  },
+  {
+    "id": 95,
+    "message": "Database not got experiencesResume.",
+    "description": "In ExperienceResumeDB class method getById.",
+    "status": 500
+  },
+  {
+    "id": 96,
+    "message": "Database not deleted experiencesResume.",
+    "description": "In ExperienceResumeDB class method deleteOne.",
+    "status": 500
+  },
+  {
+    "id": 97,
+    "message": "Database not deleted experiencesResume.",
+    "description": "In ExperienceResumeDB class method deleteById."
+  },
+  {
+    "id": 105,
+    "message": "Database not created user.",
+    "description": "In UserDB class method create",
+    "status": 500
+  },
+  {
+    "id": 106,
+    "message": "Database not found user.",
+    "description": "In UserDB class method create",
+    "status": 404
+  },
+  {
+    "id": 107,
+    "message": "Database not got header.",
+    "description": "In UserDB class method getAll",
+    "status": 500
+  },
+  {
+    "id": 108,
+    "message": "Database not got user.",
+    "description": "In UserDB class method getById",
+    "status": 500
+  },
+  {
+    "id": 109,
+    "message": "Database not deleted user.",
+    "description": "In UserDB class method deleteById",
+    "status": 500
+  },
+  {
+    "id": 110,
+    "message": "Database not updated user.",
+    "description": "In UserDB class method updateById",
+    "status": 500
+  },
+  {
+    "id": 98,
+    "message": "Database not created resume.",
+    "description": "In ResumeDB class method create",
+    "status": 500
+  },
+  {
+    "id": 99,
+    "message": "Database not got resume.",
+    "description": "In ResumeDB class method getAll",
+    "status": 500
+  },
+  {
+    "id": 100,
+    "message": "Database not got resume.",
+    "description": "In ResumeDB class method getById",
+    "status": 500
+  },
+  {
+    "id": 101,
+    "message": "Database not deleted resume.",
+    "description": "In ResumeDB class method deleteById",
+    "status": 500
+  },
+  {
+    "id": 102,
+    "message": "Database not updated resume.",
+    "description": "In ResumeDB class method updateById",
+    "status": 500
+  },
+  {
+    "id": 103,
+    "message": "Database not found resume.",
+    "description": "In ResumeDB class method updateById",
+    "status": 404
+  },
+  {
+    "id": 104,
+    "message": "Database not found skill.",
+    "description": "In ResumeDB class method create",
+    "status": 404
+  },
+  {
+    "id": 111,
+    "message": "Database not created skill.",
+    "description": "In SkillsDB class method create",
+    "status": 500
+  },
+  {
+    "id": 112,
+    "message": "Database not got skills.",
+    "description": "In SkillsDB class method getAll",
+    "status": 500
+  },
+  {
+    "id": 113,
+    "message": "Database not got skill.",
+    "description": "In SkillsDB class method getById",
+    "status": 500
+  },
+  {
+    "id": 114,
+    "message": "Database not deleted skill.",
+    "description": "In SkillsDB class method deleteById",
+    "status": 500
+  },
+  {
+    "id": 115,
+    "message": "Database not updated skill.",
+    "description": "In SkillsDB class method updateById",
+    "status": 500
+  },
+  {
+    "id": 116,
+    "message": "Database not found skill.",
+    "description": "In SkillsDB class method updateById",
+    "status": 404
+  },
+  {
+    "id": 117,
+    "message": "Database not updated environment.",
+    "description": "In EnvironmentDB class method updateById",
+    "status": 500
+  },
+  {
+    "id": 118,
+    "message": "Database not found environment.",
+    "description": "In EnvironmentDB class method updateById",
+    "status": 404
+  },
+  {
+    "id": 121,
+    "message": "Database not found user.",
+    "description": "In ResumeFasade class method addResumeToUser",
+    "status": 404
+  },
+  {
+    "id": 122,
+    "message": "UserLanguage is incorrect.",
+    "description": "In ResumeFasade class method addResumeToUser",
+    "status": 400
+  },
+  {
+    "id": 123,
+    "message": "Database not add resume.",
+    "description": "In ResumeFasade class method addResumeToUser",
+    "status": 500
+  },
+  {
+    "id": 124,
+    "message": "Database not found user.",
+    " description": "In ResumeFasade class method addHeaderToUser",
+    "status": 404
+  },
+  {
+    "id": 125,
+    "message": "Database not add or update header.",
+    " description": "In ResumeFasade class method addHeaderToUser",
+    "status": 500
+  },
+  {
+    "id": 126,
+    "message": "Database not found environment or project.",
+    " description": "In EnvironmentDB class method notExist",
+    "status": 500
+  },
+  {
+    "id": 127,
+    "message": "Database not found company.",
+    " description": "In CompanyDB class method getOne",
+    "status": 500
+  },
+  {
+    "id": 128,
+    "message": "Database not found responsibility or project.",
+    " description": "In ResponsibilityDB class method notExist",
+    "status": 500
+  },
+  {
+    "id": 119,
+    "message": "Resume not founded.",
+    "description": "In resume service method delete.",
+    "status": 404
+  },
+  {
+    "id": 120,
+    "message": "DB not found experiences resume.",
+    "description": "In resume service method delete",
+    "status": 404
+  },
+
+  {
+    "id": 129,
+    "message": "Database not created responsibilitProject.",
+    "description": "In ResponsibilityProjectDB class method create.",
+    "status": 500
+  },
+  {
+    "id": 130,
+    "message": "Database not got responsibilitProject.",
+    "description": "In ResponsibilityProjectDB class method getAll.",
+    "status": 500
+  },
+  {
+    "id": 131,
+    "message": "Database not got responsibilitProject.",
+    "description": "In ResponsibilityProjectDB class method getById.",
+    "status": 500
+  },
+  {
+    "id": 132,
+    "message": "Database not deleted responsibilitProject.",
+    "description": "In ResponsibilityProjectDB class method deleteOne.",
+    "status": 500
+  },
+  {
+    "id": 133,
+    "message": "Database not deleted responsibilitProject.",
+    "description": "In ResponsibilityProjectDB class method deleteById."
+  },
+
+  {
+    "id": 134,
+    "message": "Database not created environmentProject.",
+    "description": "In EnvironmentProjectDB class method create.",
+    "status": 500
+  },
+  {
+    "id": 135,
+    "message": "Database not got environmentProject.",
+    "description": "In EnvironmentProjectDB class method getAll.",
+    "status": 500
+  },
+  {
+    "id": 136,
+    "message": "Database not got environmentProject.",
+    "description": "In EnvironmentProjectDB class method getById.",
+    "status": 500
+  },
+  {
+    "id": 137,
+    "message": "Database not deleted environmentProject.",
+    "description": "In EnvironmentProjectDB class method deleteOne.",
+    "status": 500
+  },
+  {
+    "id": 138,
+    "message": "Database not deleted environmentProject.",
+    "description": "In EnvironmentProjectDB class method deleteById."
+  },
+  {
+    "id": 139,
+    "message": "Database not got environment.",
+    "description": "In EnvironmentDB class method getByEnvironment.",
+    "status": 500
+  },
+  {
+    "id": 140,
+    "message": "Database not got responsibility.",
+    "description": "In ResponsibilityDB class method getByResponsibility."
+  },
+  {
+    "id": 141,
+    "message": "Database not got educations.",
+    "description": "In EducationDB class method getAllByResumeId",
+    "status": 500
+  },
+  {
+    "id": 142,
+    "message": "Database not deleted resume.",
+    "description": "In ResumeService class method delete",
+    "status": 500
+  }
+]

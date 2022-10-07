@@ -1,0 +1,90 @@
+{
+  "header": {
+    "firstName": "Test",
+    "lastName": "Testing",
+    "user_position": "Software Engineer",
+    "position_level": "Middle",
+    "profile": ["JavaScript/ Web developer with over 6 years of experience in software application development", "s", "bug fixing"]
+  },
+  "skills": {
+    "operatingSystems": ["Windows", "Linux"],
+    "languages": [
+      {
+        "language": "en",
+        "level": "B2"
+      },
+      {
+        "language": "de",
+        "level": "B1"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "user_position": "Software Engineer",
+      "position_level": "Middle",
+      "companyName": "IBA Group",
+      "startDate": "2017-12-01",
+      "endDate": null,
+      "projects": [
+        {
+          "user_position": "Software Engineer",
+          "position_level": "Middle",
+          "description": "Writing a full-fledged API, using JWT to validate the user, using PostgreSQL to store data, as well as methods that provide access to retrieve information for certain users.",
+          "responsibilities": ["UI development", "bug fixing"],
+          "environment": [
+            {
+              "id": "javascript",
+              "label": "JavaScript",
+              "category": "programmingLanguages",
+              "priority": 1
+            }
+          ]
+        },
+        {
+          "user_position": "Software Engineer",
+          "position_level": "Middle",
+          "description": "",
+          "responsibilities": ["UI development"],
+          "environment": [
+            {
+              "id": "javascript",
+              "label": "JavaScript",
+              "category": "programmingLanguages",
+              "priority": 1
+            },
+            {
+              "id": "typescript",
+              "label": "TypeScript",
+              "category": "programmingLanguages",
+              "priority": 1
+            },
+            {
+              "id": "java",
+              "label": "Java",
+              "category": "programmingLanguages",
+              "priority": 2
+            },
+            {
+              "id": "go",
+              "label": "GO",
+              "category": "programmingLanguages",
+              "priority": 1
+            },
+            {
+              "id": "sql",
+              "label": "SQL",
+              "category": "programmingLanguages",
+              "priority": 2
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    "Higher education in the field of Automation of technological processes and productions, Belarusian State Technological University, Minsk",
+    "Online training course React 16 - The Complete Guide (incl. React Router 4 & Redux)"
+  ],
+  "filename": "CustomName"
+}

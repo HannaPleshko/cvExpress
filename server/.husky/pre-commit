@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+cd server
+echo \”[Husky] pre-commit on server\”
+npm run format . && npm run build:tsc && npm run lint && npm run test && git add -A .
